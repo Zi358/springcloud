@@ -1,0 +1,36 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: shop-order
+  boot:
+    admin:
+      client:
+        url: http://localhost:7779
+
+# 正确的 Feign 熔断开启配置
+feign:
+  circuitbreaker:
+    enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+
+# 指标端点暴露配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
