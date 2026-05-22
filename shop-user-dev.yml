@@ -4,6 +4,13 @@ server:
 spring:     # 服务名称
   application:
     name: shop-user
+  zipkin:
+    base-url: http://localhost:9042
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1
   datasource:
     url: jdbc:mysql://192.168.195.136:3307/springcloud?characterEncoding=UTF8&useSSL=false
     driver-class-name: com.mysql.jdbc.Driver
